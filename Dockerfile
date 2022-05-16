@@ -1,6 +1,8 @@
-FROM node:18-alpine3.14
+FROM node:16
 
-WORKDIR /app
+WORKDIR /usr/src/app
+
+COPY package*.json ./
 
 COPY . .
 
@@ -8,4 +10,4 @@ RUN npm i
 
 EXPOSE 3000
 
-CMD [ "npm", "start" ]
+CMD [ "node", "server.js" ]
