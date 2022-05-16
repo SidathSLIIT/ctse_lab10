@@ -76,10 +76,10 @@ gcloud auth configure-docker $GKE_REGION-docker.pkg.dev --quiet
 docker push "$GKE_REGION-docker.pkg.dev/$GKE_PROJECT/$GKE_PROJECT/$GKE_APP_NAME:$GITHUB_SHA"
 
 # Create deployment
-envsubst < src/Tailwind.Traders.Web/Deployment.yml | kubectl apply -f -
+envsubst < usr/src/app/deployment.yml | kubectl apply -f -
 
 # Create service
-envsubst < src/Tailwind.Traders.Web/Service.yml | kubectl apply -f -
+envsubst < usr/src/app/service.yml | kubectl apply -f -
 
 kubectl get service
 echo ""
