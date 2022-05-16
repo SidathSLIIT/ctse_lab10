@@ -1,84 +1,84 @@
+# # apiVersion: apps/v1
+# # kind: Deployment
+# # metadata:
+# #   generation: 1
+# #   labels:
+# #     app: test-sliit
+# #   name: test-sliit
+# #   namespace: default
+# # spec:
+# #   progressDeadlineSeconds: 600
+# #   replicas: 1
+# #   revisionHistoryLimit: 10
+# #   selector:
+# #     matchLabels:
+# #       app: test-sliit
+# #   strategy:
+# #     rollingUpdate:
+# #       maxSurge: 25%
+# #       maxUnavailable: 25%
+# #     type: RollingUpdate
+# #   template:
+# #     metadata:
+# #       creationTimestamp: null
+# #       labels:
+# #         app: test-sliit
+# #     spec:
+# #       containers:
+# #         # - image: it19062266/ctse_lab10:latest
+# #         - image: it19062266/ctse_lab10:be105c25896bce86e2d2ac75896bb11232002cd4
+# #           imagePullPolicy: Always
+# #           name: ctse_lab10
+# #           resources: {}
+# #           terminationMessagePath: /dev/termination-log
+# #           terminationMessagePolicy: File
+# #           ports:
+# #             - containerPort: 3000
+# #       dnsPolicy: ClusterFirst
+# #       restartPolicy: Always
+# #       schedulerName: default-scheduler
+# #       securityContext: {}
+# #       terminationGracePeriodSeconds: 30
+
+
 # apiVersion: apps/v1
 # kind: Deployment
 # metadata:
-#   generation: 1
-#   labels:
-#     app: test-sliit
-#   name: test-sliit
-#   namespace: default
+#   name: ctse_lab10
 # spec:
-#   progressDeadlineSeconds: 600
-#   replicas: 1
-#   revisionHistoryLimit: 10
+#   replicas: 2
 #   selector:
 #     matchLabels:
-#       app: test-sliit
+#       app: ctse_lab10
 #   strategy:
 #     rollingUpdate:
-#       maxSurge: 25%
-#       maxUnavailable: 25%
-#     type: RollingUpdate
+#       maxSurge: 1
+#       maxUnavailable: 1
+#   minReadySeconds: 5
 #   template:
 #     metadata:
-#       creationTimestamp: null
 #       labels:
-#         app: test-sliit
+#         app: ctse_lab10
 #     spec:
 #       containers:
-#         # - image: it19062266/ctse_lab10:latest
-#         - image: it19062266/ctse_lab10:be105c25896bce86e2d2ac75896bb11232002cd4
-#           imagePullPolicy: Always
-#           name: ctse_lab10
-#           resources: {}
-#           terminationMessagePath: /dev/termination-log
-#           terminationMessagePolicy: File
-#           ports:
-#             - containerPort: 3000
-#       dnsPolicy: ClusterFirst
-#       restartPolicy: Always
-#       schedulerName: default-scheduler
-#       securityContext: {}
-#       terminationGracePeriodSeconds: 30
-
-
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: ctse_lab10
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: ctse_lab10
-  strategy:
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
-  minReadySeconds: 5
-  template:
-    metadata:
-      labels:
-        app: ctse_lab10
-    spec:
-      containers:
-      - name: hello-app
-        image: it19062266/ctse_lab10:be105c25896bce86e2d2ac75896bb11232002cd4
-        ports:
-        - containerPort: 3000
-        resources:
-          requests:
-            cpu: 100m
-          limits:
-            cpu: 100m
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: ctse_lab10-service
-spec:
-  type: LoadBalancer
-  ports:
-    - port: 30
-      targetPort: 3000
-  selector:
-    app: ctse_lab10
+#       - name: hello-app
+#         image: it19062266/ctse_lab10:be105c25896bce86e2d2ac75896bb11232002cd4
+#         ports:
+#         - containerPort: 3000
+#         resources:
+#           requests:
+#             cpu: 100m
+#           limits:
+#             cpu: 100m
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: ctse_lab10-service
+# spec:
+#   type: LoadBalancer
+#   ports:
+#     - port: 30
+#       targetPort: 3000
+#   selector:
+#     app: ctse_lab10
