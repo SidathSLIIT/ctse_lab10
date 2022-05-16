@@ -6,11 +6,11 @@
 
 # Set parameters
 export GKE_PROJECT=fluent-tea-350406
-export GKE_CLUSTER=xyz-demo-cluster
-export GKE_APP_NAME=xyz-demo-shop
-export GKE_SERVICE=xyz-service
-export GKE_SERVICE_ACCOUNT=xyz-serviceaccount
-export GKE_DEPLOYMENT_NAME=xyz-demo-shop-deployment
+export GKE_CLUSTER=sidathirathnayake-demo-cluster
+export GKE_APP_NAME=sidathirathnayake-demo-shop
+export GKE_SERVICE=sidathirathnayake-service
+export GKE_SERVICE_ACCOUNT=sidathirathnayake-serviceaccount
+export GKE_DEPLOYMENT_NAME=sidathirathnayake-demo-shop-deployment
 
 # Get a list of regions:
 # $ gcloud compute regions list
