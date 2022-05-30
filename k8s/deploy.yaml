@@ -25,9 +25,9 @@ spec:
         app: deploy-bot-account
     spec:
       containers:
-        - image: it19062266/ctse_lab10:{{tag}}
+        - image: it19062266/botaccount:{{tag}}
           imagePullPolicy: Always
-          name: ctse_lab10
+          name: botaccount
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
